@@ -12,12 +12,12 @@ const MyThirdwebProvider = ({ children }: { children: React.ReactNode }) => {
     <ThirdwebProvider
       // desiredChainId={ChainId.Goerli}
       // clientId={process.env.CLIENT_ID}
-      clientId={process.env.VITE_CLIENT_ID}
+      clientId={process.env.NEXT_PUBLIC_CLIENT_ID}
       activeChain={Sepolia}
     >
       {/* <Router> */}
       <StateContextProvider>
-        <div className="relative text-white  sm:-8 p-4 bg-[#13131a] min-h-screen flex">
+        <div className="text-white p-4 bg-[#13131a] flex">
           <div className="sm:flex hidden mr-10 relative">
             <Sidebar />
           </div>
