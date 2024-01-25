@@ -2,18 +2,19 @@ import { loader } from '../../public/assets';
 import { CampaignCard } from '.';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { ICampaign } from '../types';
 
 interface ICampaignList {
   title: string;
   isLoading?: boolean;
   // TODO unfinish
-  campaigns: any;
+  campaigns: ICampaign[];
 }
 
 const CampaignList = ({ title, isLoading, campaigns }: ICampaignList) => {
   const router = useRouter();
 
-  const handleNavigate = (campaign) => {
+  const handleNavigate = (campaign: ICampaign) => {
     router.push(`/campaign-details/${campaign.title}`, { state: campaign });
   };
 
@@ -40,7 +41,7 @@ const CampaignList = ({ title, isLoading, campaigns }: ICampaignList) => {
 
         {!isLoading &&
           campaigns?.length > 0 &&
-          campaigns.map((campaign, index) => (
+          campaigns.map((campaign: ICampaign, index: number) => (
             <CampaignCard
               key={index}
               {...campaign}
