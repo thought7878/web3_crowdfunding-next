@@ -1,8 +1,16 @@
 import { loader } from '../../public/assets';
 import { CampaignCard } from '.';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
-const CampaignList = ({ title, isLoading, campaigns }) => {
+interface ICampaignList {
+  title: string;
+  isLoading?: boolean;
+  // TODO unfinish
+  campaigns: any;
+}
+
+const CampaignList = ({ title, isLoading, campaigns }: ICampaignList) => {
   const router = useRouter();
 
   const handleNavigate = (campaign) => {
@@ -17,7 +25,7 @@ const CampaignList = ({ title, isLoading, campaigns }) => {
 
       <div className='flex flex-wrap mt-[20px] gap-[26px]'>
         {isLoading && (
-          <img
+          <Image
             src={loader}
             alt='loader'
             className='w-[100px] h-[100px] object-contain'
