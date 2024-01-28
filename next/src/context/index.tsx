@@ -65,20 +65,22 @@ export const StateContextProvider = ({
     }
     const data = await contract.call('getCampaigns');
     console.log('getCampaigns:', data);
-    const campaigns = data.map((campaign: ICampaign, i: number) => ({
-      owner: campaign.owner,
-      title: campaign.title,
-      description: campaign.description,
-      target: ethers.utils.formatEther(campaign.target.toString()),
-      deadline: parseInt(campaign.deadline._hex),
-      amountCollected: ethers.utils.formatEther(
-        campaign.amountCollected.toString()
-      ),
-      image: campaign.image,
-      _id: i,
-    }));
+    const campaigns: ICampaign[] = data.map(
+      (campaign: ICampaign, i: number) => ({
+        owner: campaign.owner,
+        title: campaign.title,
+        description: campaign.description,
+        target: ethers.utils.formatEther(campaign.target.toString()),
+        deadline: parseInt(campaign.deadline._hex),
+        amountCollected: ethers.utils.formatEther(
+          campaign.amountCollected.toString()
+        ),
+        image: campaign.image,
+        _id: i,
+      })
+    );
 
-    return campaigns;
+    return campaigns.reverse();
   };
 
   const getUserCampaigns = async () => {
