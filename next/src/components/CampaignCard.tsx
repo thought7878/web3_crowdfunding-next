@@ -2,18 +2,9 @@ import React from 'react';
 import { tagType, thirdweb } from '../../public/assets';
 import { daysLeft } from '../utils';
 import Image from 'next/image';
-// import Image from 'next/image';
 
-interface ICampaignCard {
-  owner: string;
-  title: string;
-  description: string;
-  target: string;
-  deadline: number;
-  amountCollected: number;
-  image: string;
-  handleClick: () => void;
-}
+import { ICampaignCard } from '../types';
+// import Image from 'next/image';
 
 const CampaignCard = ({
   owner,
@@ -32,6 +23,13 @@ const CampaignCard = ({
       onClick={handleClick}
       className='sm:w-[288px] w-full rounded-[15px] bg-[#1c1c24] cursor-pointer'
     >
+      {/* <Image
+        src={image}
+        alt={title}
+        width={500}
+        height={500}
+        className='w-full h-[158px] object-cover rounded-[15px]'
+      /> */}
       <img
         src={image}
         alt={title}

@@ -3,7 +3,7 @@ import React from 'react';
 interface IButton {
   btnType?: 'button' | 'submit' | 'reset';
   title: string;
-  handleClick: () => void | Promise<void>;
+  handleClick: (e?: Event) => void | Promise<void>;
   styles?: string;
 }
 

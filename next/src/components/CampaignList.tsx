@@ -7,7 +7,6 @@ import { ICampaign } from '../types';
 interface ICampaignList {
   title: string;
   isLoading?: boolean;
-  // TODO unfinish
   campaigns: ICampaign[];
 }
 
