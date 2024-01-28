@@ -1,6 +1,9 @@
 export const daysLeft = (deadline) => {
   const difference = new Date(deadline).getTime() - Date.now();
-  const remainingDays = difference / (1000 * 3600 * 24);
+  let remainingDays = difference / (1000 * 3600 * 24);
+  if (remainingDays < 0) {
+    remainingDays = 0;
+  }
 
   return remainingDays.toFixed(0);
 };
